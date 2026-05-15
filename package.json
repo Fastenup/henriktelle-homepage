@@ -1,0 +1,19 @@
+{
+  "name": "henriktelle-plates-profit",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@fastify/static": "latest",
+    "better-sqlite3": "latest",
+    "dotenv": "latest",
+    "fastify": "latest",
+    "nodemailer": "latest"
+  },
+  "devDependencies": {}
+}
