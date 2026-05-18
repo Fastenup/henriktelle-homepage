@@ -128,7 +128,7 @@ function Masthead({ now }) {
         </nav>
 
         <div className="mast-right">
-          <div className="mast-issue">VOL. I · NO. 000</div>
+          <div className="mast-issue">VOL. I · LAUNCH</div>
           <div className="mast-date">{now}</div>
         </div>
       </div>
@@ -186,7 +186,7 @@ function Hero() {
 
             <div className="coupon-head">
               <span className="coupon-tag">SUBSCRIPTION COUPON</span>
-              <span className="coupon-no">№ 000</span>
+              <span className="coupon-no">№ 001</span>
             </div>
 
             <div className="coupon-title">
@@ -200,7 +200,7 @@ function Hero() {
 
             <div className="coupon-foot">
               <span>● 0 readers</span>
-              <span>● first issue in progress</span>
+              <span>● first issue below</span>
               <span>● Unsubscribe in one click</span>
             </div>
           </div>
@@ -226,7 +226,7 @@ function Hero() {
 function Stats() {
   const items = [
     { num: "0", lbl: "READERS" },
-    { num: "0", lbl: "ISSUES SHIPPED" },
+    { num: "1", lbl: "ISSUE SHIPPED" },
     { num: "3", lbl: "RESTAURANTS OPERATED" },
     { num: "$220K", lbl: "EXIT" },
     { num: "4hrs", lbl: "SAAS BUDGET / WEEK" },
@@ -331,10 +331,10 @@ const ISSUES = [
     no: "001",
     accent: "gold",
     dept: "SMALL BIZ FINANCE",
-    headline: "Profit is not cash. Cash is not peace.",
-    pull: "A plain-English breakdown of the numbers operators should know before the accountant sends the packet.",
-    date: "COMING SOON",
-    read: "draft",
+    headline: "+$22K profit, -$8K cash — Same month. Same business.",
+    pull: "Why a profitable P&L can still leave the bank account moving the wrong direction.",
+    date: "ISSUE 001",
+    read: "9 min",
   },
   {
     no: "002",
@@ -368,7 +368,7 @@ function Archive() {
 
       <div className="archive-grid">
         {ISSUES.map((i) => (
-          <a className="issue" key={i.no} data-accent={i.accent} href="#archive">
+          <a className="issue" key={i.no} data-accent={i.accent} href={i.no === "001" ? "#issue-001" : "#archive"}>
             <div className="issue-top">
               <span className="issue-dept">{i.dept}</span>
               <span className="issue-no">№ {i.no}</span>
@@ -384,8 +384,8 @@ function Archive() {
         ))}
       </div>
 
-      <a className="archive-all" href="#archive">
-        First issue coming soon <span>→</span>
+      <a className="archive-all" href="#issue-001">
+        Read issue 001 <span>→</span>
       </a>
     </section>
   );
@@ -479,6 +479,55 @@ function Podcast() {
             <div className="pod-row-play">▶</div>
           </a>
         ))}
+      </div>
+    </section>
+  );
+}
+
+
+function FirstIssue() {
+  return (
+    <section className="first-issue" id="issue-001">
+      <div className="issue-paper">
+        <div className="issue-kicker">THE PLATES &amp; PROFIT WEEKLY · ISSUE 001</div>
+        <h2>+$22K profit, -$8K cash — Same month. Same business.</h2>
+        <p className="issue-subject-note">
+          Also considered: <em>Profitable and broke — How both can be true at once.</em> and <em>$22,000 — Why this number on my P&amp;L didn't show up in our bank account.</em>
+        </p>
+
+        <p>Closed the books on Jealous Fork this morning. The P&amp;L showed a profitable month. The bank account told a different story.</p>
+        <p>That gap — between what your statement says you made and what's actually sitting in your account — is the single most misunderstood thing in small business. It's the reason businesses that look healthy on paper still die.</p>
+        <p>This week I want to walk through exactly how that happened to us this month, what caused it, and the simple system we use so it never surprises us again.</p>
+        <p>Here's the rest.</p>
+
+        <h3>This Week's Numbers</h3>
+        <ul>
+          <li><strong>82%</strong> — The percentage of small business failures attributed primarily to cash flow problems, not lack of profitability. Most owners are tracking the wrong number.</li>
+          <li><strong>3.5–3.75%</strong> — Where the Fed has held rates for three consecutive meetings. Your variable-rate credit line cost hasn't dropped. Plan accordingly.</li>
+          <li><strong>$15.00</strong> — Florida's minimum wage starting September 30, 2026 — the final step of Amendment 2. For most restaurant operators that's another $1/hour across the schedule. Model it now, not in October.</li>
+        </ul>
+
+        <h3>The Deep Dive</h3>
+        <h4>Why Cash and Profit Are Not the Same Thing</h4>
+        <p>Last month, Jealous Fork's P&amp;L showed roughly $22,000 in profit. Our bank account was down about $8,000 over the same period.</p>
+        <p>Both are true. Neither is a mistake.</p>
+        <p>Here's how it happens. Revenue books when you earn it — but cash arrives when customers actually pay. Vendor invoices hit the P&amp;L in the month the service was delivered — but you might not write the check for 30 or 60 days. Sales tax you collected isn't yours, but it sits in your account until you remit it. Quarterly estimated taxes don't show up on a P&amp;L at all — they leave the bank account in a single hit. A new piece of equipment is depreciated over years on the P&amp;L but paid for in one wire on day one.</p>
+        <p>Every one of those is a timing gap. Stack a few of them in the same month and you can be profitable and running out of cash at the same time.</p>
+        <p>The fix isn't more revenue. It's a 13-week cash flow projection — a simple spreadsheet that maps the actual dollars in and out of your account, week by week, for the next three months. We run ours every Monday morning. Twenty minutes. It tells us exactly when the bank account will be tightest and what we can do about it before it happens.</p>
+        <p>If you're only looking at the P&amp;L, you're flying half-blind. The bank account is the other half.</p>
+
+        <h3>What I'm Watching</h3>
+        <p><strong>Powell's term ends today.</strong> Jerome Powell's term as Fed Chair officially expires May 15. Kevin Warsh has been nominated as his successor. Whoever sits in that chair sets the cost of money for anyone carrying a credit line, an SBA loan, or a variable-rate mortgage. Watch the first public remarks closely — tone matters more than policy.</p>
+        <p><strong>Florida minimum wage final step.</strong> September 30 brings $15/hour ($11.98 tipped). After this year, increases switch to annual CPI adjustments. If you haven't modeled labor cost for Q4 with the new rate, that's this month's homework.</p>
+        <p><strong>Restaurant credit conditions.</strong> Three consecutive Fed holds at 3.5–3.75% means operating lines aren't getting cheaper. Good time to call your bank and ask if your rate is negotiable. Most owners never do. Some get a reduction.</p>
+
+        <h3>From the Restaurant</h3>
+        <p>Renegotiated payment terms with one of our smaller produce vendors this week. Moved from net-15 to net-30. Doesn't change what we pay — changes when. That's two more weeks of float on roughly $10K+/month. Small move, real impact on cash position. Most operators don't think to ask. Vendors say yes more often than you'd expect, especially the ones who want to keep the account.</p>
+
+        <h3>Before You Go</h3>
+        <p>If this issue clarified something — forward it to one business owner who only looks at their P&amp;L. They need this.</p>
+        <p>Reply with one question: do you run a cash flow projection? I'm building a template I'll share with everyone who replies.</p>
+        <p className="issue-signoff">— Henrik</p>
       </div>
     </section>
   );
@@ -753,6 +802,7 @@ function App() {
         <Stats />
         <Departments />
         <Archive />
+        <FirstIssue />
         <Projects />
         <Hire />
         <CTA />

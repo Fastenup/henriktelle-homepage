@@ -836,6 +836,83 @@ img { max-width: 100%; }
   gap: 24px;
 }
 
+/* ============ FIRST ISSUE ============ */
+.first-issue {
+  padding: var(--gutter-y) 0;
+  border-top: 1px solid var(--border);
+}
+.issue-paper {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 72px);
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01)),
+    var(--surface);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.28);
+}
+.issue-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.issue-paper h2 {
+  max-width: 780px;
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+.issue-subject-note {
+  color: var(--text-mute);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+}
+.issue-paper h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 42px);
+  margin: 48px 0 14px;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+.issue-paper h4 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  margin: 0 0 18px;
+  color: var(--text-dim);
+}
+.issue-paper p,
+.issue-paper li {
+  font-size: 18px;
+  line-height: 1.72;
+  color: var(--text-dim);
+}
+.issue-paper p {
+  margin: 0 0 18px;
+}
+.issue-paper ul {
+  padding-left: 22px;
+  margin: 0 0 24px;
+}
+.issue-paper li + li {
+  margin-top: 14px;
+}
+.issue-paper strong {
+  color: var(--text);
+}
+.issue-signoff {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text) !important;
+  margin-top: 30px !important;
+}
+
 /* ============ PODCAST ============ */
 .podcast {
   padding: var(--gutter-y) 0;

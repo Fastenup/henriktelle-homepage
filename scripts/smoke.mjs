@@ -6,10 +6,11 @@ const appJs = await fetch(`${base}/assets/app.jsx`).then(r => r.text());
 for (const needle of ['Plates &amp; Profit', 'assets/app.jsx']) {
   if (!html.includes(needle)) throw new Error(`Missing ${needle}`);
 }
-for (const needle of ['Jealous Fork', 'Tea & Poets', 'PicoCrate', 'Culistock', '/api/subscribe', '/api/inquiry']) {
+for (const needle of ['Jealous Fork', 'Tea & Poets', 'PicoCrate', 'Culistock', '/api/subscribe', '/api/inquiry', 'VOL. I · LAUNCH', '+$22K profit, -$8K cash', '$10K+/month']) {
   if (!appJs.includes(needle)) throw new Error(`Missing ${needle} in app.jsx`);
 }
 if (appJs.includes('<Podcast />')) throw new Error('Podcast section is still rendered');
+if (appJs.includes('Facebook') || appJs.includes('$[YOUR NUMBER]') || appJs.includes('VOL. I · NO. 000')) throw new Error('Old placeholder/social copy still present');
 const stamp = Date.now();
 const sub = await fetch(`${base}/api/subscribe`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: `smoke+${stamp}@example.com`, source: 'smoke' }) });
 if (!sub.ok) throw new Error(`/api/subscribe failed: ${sub.status} ${await sub.text()}`);
