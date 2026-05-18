@@ -9,6 +9,9 @@ for (const needle of ['Plates &amp; Profit', 'assets/app.jsx']) {
 for (const needle of ['Jealous Fork', 'Tea & Poets', 'PicoCrate', 'Culistock', '/api/subscribe', '/api/inquiry', 'VOL. I · LAUNCH', '+$22K profit, -$8K cash', '$10K+/month']) {
   if (!appJs.includes(needle)) throw new Error(`Missing ${needle} in app.jsx`);
 }
+for (const needle of ['@media (max-width: 720px)', 'grid-template-columns: repeat(2, minmax(0, 1fr))', '.hero-form-wrap { position: static;', '.coupon-row,\n  .cta-form { grid-template-columns: 1fr; }']) {
+  if (!html.includes(needle)) throw new Error(`Missing responsive CSS guard ${needle}`);
+}
 if (appJs.includes('<Podcast />')) throw new Error('Podcast section is still rendered');
 if (appJs.includes('Facebook') || appJs.includes('$[YOUR NUMBER]') || appJs.includes('VOL. I · NO. 000')) throw new Error('Old placeholder/social copy still present');
 const stamp = Date.now();
