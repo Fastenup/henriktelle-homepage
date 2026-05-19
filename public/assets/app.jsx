@@ -200,7 +200,7 @@ function Hero() {
 
             <div className="coupon-foot">
               <span>● 0 readers</span>
-              <span>● first issue below</span>
+              <span>● latest issues below</span>
               <span>● Unsubscribe in one click</span>
             </div>
           </div>
@@ -226,7 +226,7 @@ function Hero() {
 function Stats() {
   const items = [
     { num: "0", lbl: "READERS" },
-    { num: "1", lbl: "ISSUE SHIPPED" },
+    { num: "2", lbl: "ISSUES SHIPPED" },
     { num: "3", lbl: "RESTAURANTS OPERATED" },
     { num: "$220K", lbl: "EXIT" },
     { num: "4hrs", lbl: "SAAS BUDGET / WEEK" },
@@ -338,12 +338,12 @@ const ISSUES = [
   },
   {
     no: "002",
-    accent: "orange",
-    dept: "RESTAURANT REALITY",
-    headline: "The food-cost number is only the start of the argument.",
-    pull: "Waste, prep, comps, training, theft, bad ordering, and the weird Tuesday that ruins your perfect spreadsheet.",
-    date: "COMING SOON",
-    read: "draft",
+    accent: "gold",
+    dept: "SMALL BIZ FINANCE",
+    headline: "The closest Fed Chair confirmation vote in history.",
+    pull: "Kevin Warsh is in. Powell is out. Here's what it means for credit lines, SBA loans, and operator math.",
+    date: "ISSUE 002",
+    read: "8 min",
   },
   {
     no: "003",
@@ -368,7 +368,7 @@ function Archive() {
 
       <div className="archive-grid">
         {ISSUES.map((i) => (
-          <a className="issue" key={i.no} data-accent={i.accent} href={i.no === "001" ? "#issue-001" : "#archive"}>
+          <a className="issue" key={i.no} data-accent={i.accent} href={i.no === "001" ? "#issue-001" : i.no === "002" ? "#issue-002" : "#archive"}>
             <div className="issue-top">
               <span className="issue-dept">{i.dept}</span>
               <span className="issue-no">№ {i.no}</span>
@@ -384,9 +384,14 @@ function Archive() {
         ))}
       </div>
 
-      <a className="archive-all" href="#issue-001">
-        Read issue 001 <span>→</span>
-      </a>
+      <div className="archive-actions">
+        <a className="archive-all" href="#issue-001">
+          Read issue 001 <span>→</span>
+        </a>
+        <a className="archive-all" href="#issue-002">
+          Read issue 002 <span>→</span>
+        </a>
+      </div>
     </section>
   );
 }
@@ -533,6 +538,50 @@ function FirstIssue() {
   );
 }
 
+function SecondIssue() {
+  return (
+    <section className="first-issue" id="issue-002">
+      <div className="issue-paper">
+        <div className="issue-kicker">THE PLATES &amp; PROFIT WEEKLY · ISSUE 002</div>
+        <h2>The closest Fed Chair confirmation vote in history.</h2>
+        <p className="issue-subject-note">
+          Kevin Warsh is in. Powell is out. Here's what it means.
+        </p>
+
+        <p>The headline is political. The impact is operational.</p>
+        <p>A 54–45 confirmation vote tells you the next Fed chapter starts with almost no margin for consensus. For restaurant and small-business owners, that matters less as cable-news drama and more as a planning signal: credit conditions may stay noisy, lenders may get cautious, and variable-rate debt deserves closer attention.</p>
+
+        <h3>This Week's Numbers</h3>
+        <ul>
+          <li><strong>54–45</strong> — The closest Fed Chair confirmation vote in history.</li>
+          <li><strong>Every 1%</strong> — The rate move that turns into real dollars on an operating line, SBA note, equipment loan, or merchant cash advance.</li>
+          <li><strong>13 weeks</strong> — The cash-flow window operators should update before making hiring, menu, or expansion decisions.</li>
+        </ul>
+
+        <h3>The Deep Dive</h3>
+        <h4>Why a Fed transition reaches your back office</h4>
+        <p>The Fed does not set your rent, your avocado cost, or your payroll. But it shapes the price of money around all of it.</p>
+        <p>If your restaurant uses a line of credit to smooth payroll, pays off equipment over time, carries an SBA loan, or depends on customers who finance their own businesses, the Fed chair matters. A close confirmation vote adds uncertainty. Uncertainty makes lenders slower, stricter, and less generous with exceptions.</p>
+        <p>The wrong move is guessing where rates go next. The useful move is stress-testing your business against three versions of the next six months: rates hold, rates rise, and rates fall slower than everyone hoped.</p>
+        <p>Pull the debt schedule. List every variable-rate balance. Add the monthly payment impact at +0.50%, +1.00%, and +2.00%. Then drop those numbers into the 13-week cash-flow projection. That is the version of macro news an operator can actually use.</p>
+
+        <h3>What I'm Watching</h3>
+        <p><strong>Bank tone.</strong> If your banker starts asking for more recent financials or slower renewal timelines, treat that as data. Get ahead of it.</p>
+        <p><strong>Supplier terms.</strong> In tighter credit environments, vendors protect their own cash first. Good payment history becomes leverage.</p>
+        <p><strong>Expansion math.</strong> The same build-out can look cheap or dangerous depending on the financing rate. Re-run the model before signing anything.</p>
+
+        <h3>From the Restaurant</h3>
+        <p>For operators, the Fed is not an abstract institution. It is the difference between a manageable line of credit and a payment that quietly eats your margin. The work is not predicting Washington. The work is keeping your cash plan honest.</p>
+
+        <h3>Before You Go</h3>
+        <p>Forward this to one owner who says macro news does not matter to their business. It matters the moment they borrow, renew, or miss a cash-flow turn.</p>
+        <p>Reply with one number: what is your current interest rate on the debt you actually use?</p>
+        <p className="issue-signoff">— Henrik</p>
+      </div>
+    </section>
+  );
+}
+
 /* =====================================================================
    PROJECTS — what Henrik is building / has built
    ===================================================================== */
@@ -545,6 +594,7 @@ const PROJECTS = [
     one: "Miami-born artisan pancake and brunch concept that grew from food-truck energy into a Kendall restaurant with a loyal local following.",
     metric: "3",
     metricLabel: "RESTAURANTS",
+    href: "https://www.jealousfork.com",
   },
   {
     n: "02",
@@ -554,6 +604,7 @@ const PROJECTS = [
     one: "Community tea house, market, and live-events room built around poetry, makers, music, and Miami people who stay longer than planned.",
     metric: "10Y",
     metricLabel: "ANNIVERSARY",
+    href: "https://www.teaandpoets.com",
   },
   {
     n: "03",
@@ -561,8 +612,9 @@ const PROJECTS = [
     status: "Starting now",
     statusColor: "gold",
     one: "The operator notebook: restaurant reality, small-business finance, and the math of building while operating.",
-    metric: "0",
+    metric: "2",
     metricLabel: "ISSUES SHIPPED",
+    href: "#newsletter",
   },
   {
     n: "04",
@@ -572,6 +624,7 @@ const PROJECTS = [
     one: "AI receptionist and voice-agent systems for small businesses that need calls answered, leads captured, and appointments booked after hours.",
     metric: "24/7",
     metricLabel: "VOICE INTAKE",
+    href: "https://www.picocrate.com",
   },
   {
     n: "05",
@@ -581,6 +634,7 @@ const PROJECTS = [
     one: "Restaurant inventory and operations software for turning purchasing, stock, shift work, and POS signals into practical daily decisions.",
     metric: "OPS",
     metricLabel: "RESTAURANT OS",
+    href: "https://www.culistock.com",
   },
 ]
 
@@ -598,8 +652,10 @@ function Projects() {
       </div>
 
       <div className="projects-grid">
-        {PROJECTS.map((p) => (
-          <div className="project" key={p.n} data-accent={p.statusColor}>
+        {PROJECTS.map((p) => {
+          const isExternal = /^https?:\/\//.test(p.href);
+          return (
+          <a className="project" key={p.n} data-accent={p.statusColor} href={p.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} aria-label={`${p.name} — ${isExternal ? 'open website' : 'sign up for Plates & Profit'}`}>
             <div className="project-n">{p.n}</div>
             <div className="project-name">{p.name}</div>
             <div className="project-status">
@@ -609,10 +665,11 @@ function Projects() {
             <p className="project-one">{p.one}</p>
             <div className="project-metric">
               <div className="pm-num">{p.metric}</div>
-              <div className="pm-lbl">{p.metricLabel}</div>
+              <div className="pm-lbl">{p.metricLabel} →</div>
             </div>
-          </div>
-        ))}
+          </a>
+          );
+        })}
       </div>
     </section>
   );
@@ -803,6 +860,7 @@ function App() {
         <Departments />
         <Archive />
         <FirstIssue />
+        <SecondIssue />
         <Projects />
         <Hire />
         <CTA />

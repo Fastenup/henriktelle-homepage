@@ -821,6 +821,12 @@ img { max-width: 100%; }
 }
 .issue-foot span:last-child { color: var(--accent); }
 
+.archive-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+}
 .archive-all {
   display: inline-flex;
   align-items: baseline;
@@ -1132,13 +1138,22 @@ img { max-width: 100%; }
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  transition: background .15s;
+  cursor: pointer;
+  min-height: 100%;
+  transition: background .15s, transform .15s, border-color .15s;
 }
-.project:hover { background: var(--surface); }
+.project:hover,
+.project:focus-visible {
+  background: var(--surface);
+  transform: translateY(-2px);
+  outline: none;
+  border-color: color-mix(in srgb, var(--acc) 55%, var(--border));
+}
 .project[data-accent="orange"] { --acc: var(--p-orange); }
 .project[data-accent="gold"]   { --acc: var(--p-gold); }
 .project[data-accent="blue"]   { --acc: var(--p-blue); }
 .project[data-accent="green"]  { --acc: var(--p-green); }
+.project[data-accent="purple"] { --acc: var(--p-purple); }
 .project-n {
   font-family: var(--font-mono);
   font-size: 11px;

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#09090f"/>
+  <rect x="36" y="36" width="1008" height="1008" fill="none" stroke="#1a1d28" stroke-width="2"/>
+  <rect x="274" y="126" width="532" height="54" fill="none" stroke="#3a3d48" stroke-width="1"/>
+  <text x="540" y="161" text-anchor="middle" font-family="'Courier New', 'Liberation Mono', monospace" font-size="23" font-weight="700" letter-spacing="4" fill="#888888">FED TRANSITION · MAY 2026</text>
+  <text x="540" y="485" text-anchor="middle" font-family="Georgia, 'Noto Serif', serif" font-size="292" font-weight="700" fill="#f5c518">54–45</text>
+  <text x="540" y="625" text-anchor="middle" font-family="Georgia, 'Noto Serif', serif" font-size="61" font-weight="700" fill="#e0e2ea">The closest Fed Chair</text>
+  <text x="540" y="698" text-anchor="middle" font-family="Georgia, 'Noto Serif', serif" font-size="61" font-weight="700" fill="#e0e2ea">confirmation vote in history.</text>
+  <text x="540" y="774" text-anchor="middle" font-family="'DM Sans', 'Noto Sans', sans-serif" font-size="31" fill="#888888">Kevin Warsh is in. Powell is out. Here's what it means.</text>
+  <line x1="72" y1="900" x2="1008" y2="900" stroke="#1a1d28" stroke-width="1"/>
+  <text x="72" y="970" font-family="'Courier New', 'Liberation Mono', monospace" font-size="22" font-weight="700" letter-spacing="4" fill="#e0e2ea">HENRIK TELLE</text>
+  <text x="1008" y="970" text-anchor="end" font-family="'Courier New', 'Liberation Mono', monospace" font-size="22" font-weight="700" letter-spacing="4" fill="#e0e2ea">PLATES &amp; PROFIT</text>
+</svg>
