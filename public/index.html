@@ -568,6 +568,60 @@ img { max-width: 100%; }
   transition: filter .15s;
 }
 .coupon-row button:hover { filter: brightness(1.1); }
+.subscriber-fields {
+  display: grid;
+  grid-template-columns: 0.62fr 1fr;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+}
+.subscriber-fields input {
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule);
+  padding: 16px 18px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text);
+  outline: none;
+  min-width: 0;
+}
+.subscriber-fields input:last-child { border-right: none; }
+.subscriber-fields input::placeholder {
+  color: var(--text-mute);
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+.subscriber-fields input:focus {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+.consent-line {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  color: var(--text-mute);
+  text-transform: uppercase;
+}
+.consent-line input {
+  margin-top: 1px;
+  accent-color: var(--accent);
+}
+.subscribe-button {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 15px 22px;
+  transition: filter .15s;
+  cursor: pointer;
+}
+.subscribe-button:hover { filter: brightness(1.1); }
 .coupon-foot {
   display: flex;
   flex-wrap: wrap;
@@ -1368,43 +1422,20 @@ img { max-width: 100%; }
   color: var(--accent);
 }
 .cta-form {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
   margin: 0 auto 16px;
-  border: 1px solid var(--rule);
-  background: var(--bg);
 }
-.cta-form input {
-  background: transparent;
-  border: none;
-  padding: 18px 20px;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  color: var(--text);
-  outline: none;
-  min-width: 0;
+.cta-form .subscriber-fields,
+.cta-form .subscribe-button {
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--accent) 32%, transparent);
 }
-.cta-form input::placeholder {
-  color: var(--text-mute);
-  font-style: italic;
-  font-family: var(--font-serif);
+.cta-form .consent-line {
+  justify-content: center;
+  text-align: left;
 }
-.cta-form input:focus {
-  background: color-mix(in srgb, var(--accent) 6%, transparent);
-}
-.cta-form button {
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  padding: 0 24px;
-  transition: filter .15s;
-}
-.cta-form button:hover { filter: brightness(1.1); }
 .cta-fine {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1641,7 +1672,9 @@ textarea:disabled {
   .coupon-title { font-size: 28px; padding-right: 54px; }
   .coupon-sub { font-size: 16px; margin-bottom: 22px; }
   .coupon-row,
-  .cta-form { grid-template-columns: 1fr; }
+  .subscriber-fields { grid-template-columns: 1fr; }
+  .subscriber-fields input { border-right: none; border-bottom: 1px solid var(--rule); }
+  .subscriber-fields input:last-child { border-bottom: none; }
   .coupon-row button,
   .cta-form button { min-height: 48px; padding: 14px 18px; }
   .coupon-foot { gap: 8px 12px; letter-spacing: 0.16em; }

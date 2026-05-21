@@ -1,0 +1,19 @@
+Subject: Welcome to Plates & Profit
+Preview text: Your Sunday operator notebook starts here.
+
+Hi {{contact.first_name}},
+
+Welcome to Plates & Profit — my Sunday operator notebook on restaurant reality, small-business finance, and the math of building while operating.
+
+What to expect:
+- One practical issue each Sunday morning
+- Restaurant numbers without the victory-lap nonsense
+- Notes on cash flow, labor, food cost, audits, exit math, and useful AI ops
+
+Start here: https://henriktelle.com/#archive
+
+If this ever stops being useful, unsubscribe in one click from any newsletter email.
+
+— Henrik Telle
+Plates & Profit
+https://henriktelle.com

@@ -9,11 +9,11 @@ const CONTACT_EMAIL = SITE_CONFIG.contactEmail || 'henrik@henriktelle.com';
 const BOOKING_URL = SITE_CONFIG.bookingUrl || `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Plates & Profit advisory inquiry')}`;
 const SOCIAL_LINKS = SITE_CONFIG.socialLinks || {};
 
-async function submitSubscriber(email, source) {
+async function submitSubscriber({ email, name, source, consent }) {
   const response = await fetch('/api/subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, source })
+    body: JSON.stringify({ email, name, source, consent })
   });
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(payload.error || 'Could not subscribe right now.');
@@ -66,37 +66,57 @@ function LeadForm() {
 }
 
 function SubscribeForm({ variant = 'coupon' }) {
-  const [email, setEmail] = useState('');
+  const [form, setForm] = useState({ name: '', email: '', consent: true });
   const [state, setState] = useState({ status: 'idle', message: '' });
   const className = variant === 'cta' ? 'cta-form' : 'coupon-form';
+  const update = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
   async function onSubmit(e) {
     e.preventDefault();
     setState({ status: 'loading', message: 'Adding you…' });
     try {
-      await submitSubscriber(email, variant);
-      setEmail('');
-      setState({ status: 'success', message: 'You’re on the list. Check your inbox for confirmation.' });
+      await submitSubscriber({ ...form, source: variant });
+      setForm({ name: '', email: '', consent: true });
+      setState({ status: 'success', message: 'You’re on the list. Your welcome note is next.' });
     } catch (err) {
       setState({ status: 'error', message: err.message });
     }
   }
   return (
     <form className={className} onSubmit={onSubmit} data-status={state.status}>
-      {variant !== 'cta' && <label className="coupon-label" htmlFor="email">YOUR EMAIL</label>}
-      <div className={variant === 'cta' ? undefined : 'coupon-row'}>
+      {variant !== 'cta' && <label className="coupon-label" htmlFor="subscriber-email">JOIN THE OPERATOR LIST</label>}
+      <div className={variant === 'cta' ? 'subscriber-fields cta-subscriber-fields' : 'subscriber-fields'}>
         <input
-          id={variant === 'cta' ? undefined : 'email'}
+          type="text"
+          placeholder="First name"
+          value={form.name}
+          onChange={(e) => update('name', e.target.value)}
+          disabled={state.status === 'loading'}
+          autoComplete="given-name"
+        />
+        <input
+          id={variant === 'cta' ? undefined : 'subscriber-email'}
           type="email"
           required
           placeholder={variant === 'cta' ? 'your@email.com' : 'operator@yourrestaurant.com'}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={form.email}
+          onChange={(e) => update('email', e.target.value)}
           disabled={state.status === 'loading'}
+          autoComplete="email"
         />
-        <button type="submit" disabled={state.status === 'loading'}>
-          {state.status === 'loading' ? 'ADDING…' : 'SUBSCRIBE →'}
-        </button>
       </div>
+      <label className="consent-line">
+        <input
+          type="checkbox"
+          checked={form.consent}
+          onChange={(e) => update('consent', e.target.checked)}
+          disabled={state.status === 'loading'}
+          required
+        />
+        <span>Send me Plates &amp; Profit. I can unsubscribe anytime.</span>
+      </label>
+      <button className="subscribe-button" type="submit" disabled={state.status === 'loading'}>
+        {state.status === 'loading' ? 'ADDING…' : 'SUBSCRIBE →'}
+      </button>
       {state.message && <div className={`form-message ${state.status}`} role="status">{state.message}</div>}
     </form>
   );

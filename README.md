@@ -43,27 +43,28 @@ If you want calendar automation later, connect Cal.com, SavvyCal, TidyCal, or Ca
 
 ## Practical subscriber/newsletter flow
 
-Current built-in flow:
+Current GHL-first flow:
 
-1. Visitor subscribes on homepage.
-2. Email is stored in SQLite.
-3. If SMTP is configured, Henrik gets a notification.
-4. Export subscribers as CSV or send a basic newsletter via `/admin/newsletter`.
+1. Visitor subscribes on homepage with first name, email, and consent.
+2. The site stores the subscriber in SQLite as a backup/audit log.
+3. If `GHL_API_KEY` and `GHL_LOCATION_ID` are configured, the site upserts the contact into GoHighLevel / LeadConnector.
+4. The contact gets two tags by default:
+   - `plates-profit-newsletter`
+   - `plates-profit-welcome-email`
+5. In GHL, create a workflow triggered by the `plates-profit-welcome-email` tag and send the branded welcome email template from `templates/ghl-welcome-email.html`.
+6. Use GHL Email Campaigns / LC Email for regular Plates & Profit newsletters, filtered by the `plates-profit-newsletter` tag.
 
-This is functional for early launch. For serious publishing, use one of:
+Protected preview endpoint:
 
-- Buttondown: best clean/simple newsletter tool.
-- Beehiiv: best if growth/referral/newsletter analytics matter.
-- Ghost: best if you want an owned publication with archive/paywall potential.
-- ConvertKit: good creator CRM, more marketing-y.
+- `GET /admin/welcome-email-preview?token=ADMIN_TOKEN`
 
-My recommendation: start with Buttondown or Beehiiv. Keep local SQLite as backup/lead log.
+The old SMTP newsletter endpoint still exists as a fallback/admin utility, but the intended production sender is GHL so unsubscribe/compliance stays inside GHL.
 
 ## Third-party/services to connect before launch
 
 1. DNS: point `henriktelle.com` and `www.henriktelle.com` A/AAAA records to the Hetzner server.
-2. Email sending: use Postmark, Resend, Mailgun, Brevo, or SMTP from your email provider; fill `SMTP_*` env vars.
-3. Newsletter platform, optional but recommended: Beehiiv, Buttondown, Ghost, ConvertKit, or Mailchimp.
+2. GHL / LC Email: authenticate `henriktelle.com` as a sending domain in GoHighLevel, then create the welcome workflow triggered by `plates-profit-welcome-email`.
+3. Optional SMTP: only needed for owner notifications or direct welcome fallback; fill `SMTP_*` env vars if used.
 4. Lead booking: keep the lead brief form for qualification; optionally add Cal.com/SavvyCal later.
 5. Analytics: Plausible, Fathom, Umami, or Google Analytics if you want traffic/conversion tracking.
 6. Privacy/legal: add a privacy page because the site collects emails and leads.
