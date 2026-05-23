@@ -247,7 +247,7 @@ function Hero() {
 function Stats() {
   const items = [
     { num: "0", lbl: "READERS" },
-    { num: "2", lbl: "ISSUES SHIPPED" },
+    { num: "3", lbl: "ISSUES SHIPPED" },
     { num: "3", lbl: "RESTAURANTS OPERATED" },
     { num: "$220K", lbl: "EXIT" },
     { num: "4hrs", lbl: "SAAS BUDGET / WEEK" },
@@ -347,7 +347,7 @@ function Departments() {
 /* =====================================================================
    ARCHIVE PREVIEW — 6 recent issues as mini magazine covers
    ===================================================================== */
-const ISSUES = [
+const STATIC_ISSUES = [
   {
     no: "001",
     accent: "gold",
@@ -376,6 +376,11 @@ const ISSUES = [
     read: "draft",
     href: "#archive",
   },
+]
+
+const PUBLISHED_ISSUE_NOS = new Set(PUBLISHED_NEWSLETTER_ISSUES.map((issue) => String(issue.no)));
+const ISSUES = [
+  ...STATIC_ISSUES.filter((issue) => !PUBLISHED_ISSUE_NOS.has(issue.no)),
   ...PUBLISHED_NEWSLETTER_ISSUES.map((issue) => ({
     no: issue.no,
     accent: issue.accent || "gold",
@@ -417,12 +422,11 @@ function Archive() {
       </div>
 
       <div className="archive-actions">
-        <a className="archive-all" href="#issue-001">
-          Read issue 001 <span>→</span>
-        </a>
-        <a className="archive-all" href="#issue-002">
-          Read issue 002 <span>→</span>
-        </a>
+        {[...new Set(["001", "002", ...PUBLISHED_NEWSLETTER_ISSUES.map((issue) => String(issue.no))])].map((no) => (
+          <a className="archive-all" key={no} href={`#issue-${no}`}>
+            Read issue {no} <span>→</span>
+          </a>
+        ))}
       </div>
     </section>
   );
@@ -668,7 +672,7 @@ const PROJECTS = [
     status: "Starting now",
     statusColor: "gold",
     one: "The operator notebook: restaurant reality, small-business finance, and the math of building while operating.",
-    metric: "2",
+    metric: "3",
     metricLabel: "ISSUES SHIPPED",
     href: "#newsletter",
   },
