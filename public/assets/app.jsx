@@ -8,6 +8,7 @@ const SITE_CONFIG = window.SITE_CONFIG || {};
 const CONTACT_EMAIL = SITE_CONFIG.contactEmail || 'henrik@henriktelle.com';
 const BOOKING_URL = SITE_CONFIG.bookingUrl || `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Plates & Profit advisory inquiry')}`;
 const SOCIAL_LINKS = SITE_CONFIG.socialLinks || {};
+const PUBLISHED_NEWSLETTER_ISSUES = Array.isArray(window.NEWSLETTER_ISSUES) ? window.NEWSLETTER_ISSUES : [];
 
 async function submitSubscriber({ email, name, source, consent }) {
   const response = await fetch('/api/subscribe', {
@@ -373,7 +374,18 @@ const ISSUES = [
     pull: "A careful version of the seller math: debt, fees, taxes, adjustments, and the number that actually matters.",
     date: "COMING SOON",
     read: "draft",
+    href: "#archive",
   },
+  ...PUBLISHED_NEWSLETTER_ISSUES.map((issue) => ({
+    no: issue.no,
+    accent: issue.accent || "gold",
+    dept: issue.dept || "PLATES & PROFIT",
+    headline: issue.headline || issue.title,
+    pull: issue.pull || issue.subtitle || "Operator notes from Henrik Telle.",
+    date: issue.date || `ISSUE ${issue.no}`,
+    read: issue.read || "read",
+    href: `#issue-${issue.no}`,
+  })),
 ]
 
 function Archive() {
@@ -388,7 +400,7 @@ function Archive() {
 
       <div className="archive-grid">
         {ISSUES.map((i) => (
-          <a className="issue" key={i.no} data-accent={i.accent} href={i.no === "001" ? "#issue-001" : i.no === "002" ? "#issue-002" : "#archive"}>
+          <a className="issue" key={i.no} data-accent={i.accent} href={i.href || (i.no === "001" ? "#issue-001" : i.no === "002" ? "#issue-002" : "#archive")}>
             <div className="issue-top">
               <span className="issue-dept">{i.dept}</span>
               <span className="issue-no">№ {i.no}</span>
@@ -597,6 +609,30 @@ function SecondIssue() {
         <p>Forward this to one owner who says macro news does not matter to their business. It matters the moment they borrow, renew, or miss a cash-flow turn.</p>
         <p>Reply with one number: what is your current interest rate on the debt you actually use?</p>
         <p className="issue-signoff">— Henrik</p>
+      </div>
+    </section>
+  );
+}
+
+function DynamicIssue({ issue }) {
+  const renderInline = (text) => String(text || '').split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>;
+    return part;
+  });
+
+  return (
+    <section className="first-issue" id={`issue-${issue.no}`}>
+      <div className="issue-paper">
+        <div className="issue-kicker">{issue.kicker || `THE PLATES & PROFIT WEEKLY · ISSUE ${issue.no}`}</div>
+        <h2>{issue.title || issue.headline}</h2>
+        {issue.subtitle ? <p className="issue-subject-note">{issue.subtitle}</p> : null}
+        {(issue.blocks || []).map((block, index) => {
+          if (block.type === 'h3') return <h3 key={index}>{block.text}</h3>;
+          if (block.type === 'h4') return <h4 key={index}>{block.text}</h4>;
+          if (block.type === 'ul') return <ul key={index}>{block.items.map((item, itemIndex) => <li key={itemIndex}>{renderInline(item)}</li>)}</ul>;
+          if (block.type === 'signoff') return <p key={index} className="issue-signoff">{block.text}</p>;
+          return <p key={index}>{renderInline(block.text)}</p>;
+        })}
       </div>
     </section>
   );
@@ -881,6 +917,7 @@ function App() {
         <Archive />
         <FirstIssue />
         <SecondIssue />
+        {PUBLISHED_NEWSLETTER_ISSUES.map((issue) => <DynamicIssue key={issue.no} issue={issue} />)}
         <Projects />
         <Hire />
         <CTA />

@@ -1,0 +1,1 @@
+window.NEWSLETTER_ISSUES = [];

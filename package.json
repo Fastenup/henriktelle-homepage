@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "publish:newsletter": "node scripts/publish-newsletter.mjs"
   },
   "dependencies": {
     "@fastify/static": "latest",

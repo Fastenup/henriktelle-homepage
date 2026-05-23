@@ -58,6 +58,29 @@ Protected preview endpoint:
 
 - `GET /admin/welcome-email-preview?token=ADMIN_TOKEN`
 
+### Discord-to-webpage publishing convention
+
+This repo now has a lightweight webpage publishing path for drafts pasted into the Hermes Discord channel:
+
+1. Paste the draft and start the message with `PUBLISH PLATES & PROFIT`.
+2. Include Markdown. Preferred frontmatter:
+   ```md
+   ---
+   no: 004
+   title: Your issue title
+   subtitle: Optional deck / subject note
+   dept: SMALL BIZ FINANCE
+   accent: gold
+   pull: Short archive-card pull quote
+   read: 8 min
+   date: ISSUE 004
+   ---
+   ```
+3. Use `##` for main sections, `###` for subsection headings, bullets for number lists, and `**bold**` for emphasized figures.
+4. Gram runs `npm run publish:newsletter -- path/to/draft.md`, commits, pushes, and verifies the live page at `https://henriktelle.com/#issue-XXX`.
+
+The script writes formatted issues to `public/assets/newsletter-data.js`. Issues 001 and 002 remain hardcoded; new pasted issues render dynamically with the same archive-card and newspaper article styling.
+
 The old SMTP newsletter endpoint still exists as a fallback/admin utility, but the intended production sender is GHL so unsubscribe/compliance stays inside GHL.
 
 ## Third-party/services to connect before launch
