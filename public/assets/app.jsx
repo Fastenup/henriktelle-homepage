@@ -247,7 +247,9 @@ function Hero() {
 function Stats() {
   const items = [
     { num: "0", lbl: "READERS" },
-    { num: "3", lbl: "ISSUES SHIPPED" },
+    // ISSUES SHIPPED derives from the merged archive list so it self-updates on
+    // every newsletter publish (no manual bump). See ISSUES below.
+    { num: String(ISSUES.length), lbl: "ISSUES SHIPPED" },
     { num: "3", lbl: "RESTAURANTS OPERATED" },
     { num: "$220K", lbl: "EXIT" },
     { num: "4hrs", lbl: "SAAS BUDGET / WEEK" },
