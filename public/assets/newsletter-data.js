@@ -112,5 +112,115 @@ window.NEWSLETTER_ISSUES = [
         "text": "— Henrik"
       }
     ]
+  },
+  {
+    "no": "004",
+    "accent": "orange",
+    "dept": "RESTAURANT REALITY",
+    "title": "3 to 5% — what a restaurant actually keeps out of every dollar",
+    "headline": "3 to 5% — what a restaurant actually keeps out of every dollar",
+    "subtitle": "A busy room and a healthy bottom line are not the same thing. Here's the Saturday P&L.",
+    "pull": "People see a busy restaurant and assume the owner is getting rich. The gap between a full room and a healthy margin is what nobody outside this business understands.",
+    "date": "ISSUE 004",
+    "read": "6 min",
+    "kicker": "THE PLATES & PROFIT WEEKLY · ISSUE 004",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "We just came off a packed Saturday at Jealous Fork. Full book, a wait by 10am, the kind of service that looks great from the dining room and from the outside."
+      },
+      {
+        "type": "p",
+        "text": "Then you close out, run the numbers, and remember how little of that money actually stays. People see a busy restaurant and assume the owner is getting rich. The gap between a full room and a healthy bottom line is the thing almost nobody outside this business understands."
+      },
+      {
+        "type": "p",
+        "text": "So this week I'm walking you through where every dollar from a Saturday actually goes."
+      },
+      {
+        "type": "h3",
+        "text": "This Week's Numbers"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "**3.6%.** Food away from home is up that much over the past year as of April. Every plate I send out costs more to make than it did twelve months ago, and that pressure does not show up in the dining room. It shows up at month end.",
+          "**36.5%.** The median labor cost for a full-service restaurant now, as a share of sales. The number we all used to aim for was 25 to 35%. The whole industry has quietly drifted above the top of that range, and rising minimum wages keep pushing it.",
+          "**3 to 5%.** The net profit margin an average full-service restaurant actually keeps in 2026. Not thirty. Not fifteen. Single digits, after everything is paid."
+        ]
+      },
+      {
+        "type": "h3",
+        "text": "The Deep Dive"
+      },
+      {
+        "type": "h4",
+        "text": "Where every dollar from a Saturday actually goes"
+      },
+      {
+        "type": "p",
+        "text": "Take any hundred dollars that walks through the door on a Saturday. Here is where it goes before it ever becomes profit."
+      },
+      {
+        "type": "p",
+        "text": "About 30 of it is food. Our target food cost at Jealous Fork sits between 28 and 32%, and with prices up over the past year, holding that line takes constant work on portioning and vendor pricing. Let it drift to 35 and you've handed away a third of your already-thin margin."
+      },
+      {
+        "type": "p",
+        "text": "Another 35 or so is labor, and that's the line that's moved the most. Skilled brunch service is not cheap, and it shouldn't be. But the industry median is now 36.5%, and every Florida minimum wage step pushes it higher. That is the number I watch most closely."
+      },
+      {
+        "type": "p",
+        "text": "Then come the costs people forget. Rent and occupancy. Card processing on every single ticket. Utilities running hard on a busy line. Insurance, POS fees, repairs, the linens. None of them are huge alone. Together they're another big bite."
+      },
+      {
+        "type": "p",
+        "text": "What's left at the bottom of that hundred dollars is a few dollars. That's the 3 to 5%. Our break-even at Jealous Fork is $38K/month, and a full Saturday is what gets us past it, not over it by much."
+      },
+      {
+        "type": "p",
+        "text": "None of this is a complaint. It's the actual math of the business, and knowing it is the whole game. When your margin is 4%, a two-point swing in food or labor isn't a rounding error. It's the difference between a good month and a loss. That's why I count."
+      },
+      {
+        "type": "h3",
+        "text": "What I'm Watching"
+      },
+      {
+        "type": "p",
+        "text": "Florida's minimum wage goes to $15.00 an hour on September 30, up from $14.00 today, with the tipped cash wage moving to $11.98. If you run on labor, model what that does to your labor percentage now, not in October. It is on the calendar. There's no excuse to be surprised by it."
+      },
+      {
+        "type": "p",
+        "text": "The May inflation report drops June 10. Watch the food-away-from-home number specifically. If it ticks up again, that's your cover to revisit menu prices, because your costs already moved whether you raised prices or not. Most owners wait too long to adjust and eat the difference for months."
+      },
+      {
+        "type": "h3",
+        "text": "From the Restaurant"
+      },
+      {
+        "type": "p",
+        "text": "Changed how we stagger server start times this week. Instead of bringing the full floor in at open, we're phasing them in against the actual reservation curve, with the back half starting closer to the rush. Same coverage when it counts, a couple fewer paid hours on a slow open. On a single shift it's small. Across a month of brunch service it's real money, and the guests never feel it."
+      },
+      {
+        "type": "h3",
+        "text": "Before You Go"
+      },
+      {
+        "type": "p",
+        "text": "If this gave you a clearer picture of the business, send it to one person who thinks owning a restaurant is a license to print money."
+      },
+      {
+        "type": "p",
+        "text": "I'm breaking down the full Saturday P&L on video this week. Search Henrik Telle on Facebook for the walkthrough."
+      },
+      {
+        "type": "p",
+        "text": "And if you run a restaurant, hit reply and tell me your prime cost, food plus labor as one number. I'll tell you honestly whether it's in a healthy range."
+      },
+      {
+        "type": "signoff",
+        "text": "— Henrik"
+      }
+    ]
   }
 ];
